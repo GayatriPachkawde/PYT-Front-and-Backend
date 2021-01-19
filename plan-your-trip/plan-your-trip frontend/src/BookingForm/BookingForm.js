@@ -1,8 +1,49 @@
+<<<<<<< HEAD
 import react from "react";
 import "./BookingForm.css";
 import NavBar from "../Navbar/Navbar";
 import Footer from "../footer/Footer";
 import logo from "./FormImg.svg";
+=======
+import react from 'react';
+import './BookingForm.css';
+import NavBar from '../Navbar/Navbar';
+import Footer from '../footer/Footer';
+import logo from './FormImg.svg';
+
+function CostSlider(){
+  // var slider1 = document.getElementById("myRange1");
+  // var slider2 = document.getElementById("myRange2");
+  // var hours = document.getElementById("hours");
+  // var price1 = document.getElementById("price1");
+  // price1.innerHTML = slider1.value*65;
+  // var price2 = document.getElementById("price2");
+  // price2.innerHTML = slider2.value*1560;
+  // var days = document.getElementById("days");
+  // hours.innerHTML = slider1.value;
+  // days.innerHTML = slider2.value;
+
+  // slider1.oninput = function() {
+  //     hours.innerHTML = this.value;
+  //     price1.innerHTML = this.value*65;
+  // }
+  // slider2.oninput = function() {
+  //     days.innerHTML = (this.value);
+  //     price2.innerHTML = this.value*1560;
+  // }
+  return(
+      <div class="slidecontainerbf">
+          <h1>Calculate the cost of  trip</h1>
+          <input type="range" min="10" max="96" value="24" className="slider" id="myRange1"></input>
+          <p>Hours: <span id="hours"></span></p>
+          <p>Price: <span id="price1"></span></p>
+          <input type="range" min="5" max="15" value="1" className="slider" id="myRange2"></input>
+          <p>Days: <span id="days"></span></p>
+          <p>Price: <span id="price2">0</span></p>
+      </div>
+  )
+}
+>>>>>>> 73612e9d5b7dbee060fcba734b64fa2b4373adc0
 
 export default function Form(props) {
   return (
@@ -10,6 +51,7 @@ export default function Form(props) {
       <NavBar />
       {/* <img className="sideimg" src="https://thepointsguy.com/wp-content/themes/tpg-2016/client/images/tpg-weekly-update-man-left.svg" alt="sideimg"></img> */}
       <img className="sideimgbook" src={logo} alt="sideimg"></img>
+<<<<<<< HEAD
       <div className="form-containerbook sign-in-containerbook">
         <form action="#">
           <h1>Fill the Form</h1>
@@ -53,5 +95,48 @@ export default function Form(props) {
       </div>
       <Footer />
     </>
+=======
+        <CostSlider/>
+        <div className="form-containerbook">
+          <form action="#">
+            <h1>Fill the Form</h1>
+            <div className="inputfieldsbook">
+              <input type="text" placeholder="Name" />
+              <input type="number" placeholder="Age" />
+              <input type="tel" placeholder="Phone Number" />
+              <input type="text" disabled value="cityval"/>
+              <input type="password" placeholder="Driving Licence Number" />
+              <input type="number" placeholder="Number of travellers"/>
+              <input type="text" placeholder="Please provide your current Address" />
+              <div className="chooseacar">Choose a car : </div>
+              <select id="cars" required>
+                <option value="Selectacar">Select a Car</option>
+                <optgroup label="Five Seater">
+                  <option value="Swift Dezire">Swift Dezire</option>
+                  <option value="Renault Kwid">Renault Kwid</option>
+                  <option value="Hyundai Creta">Hyundai Creta</option>
+                </optgroup>
+                <optgroup label="Seven Seater">
+                  <option value="Innova">Innova</option>
+                  <option value="Duster">Duster</option>
+                  <option value="Fortuner">Fortuner</option>
+                </optgroup>
+                <optgroup label="Luxury">
+                  <option value="MgHector">MgHector</option>
+                  <option value="Kia">Kia</option>
+                  <option value="Jeep">Jeep</option>
+                </optgroup>
+              </select>
+              <p>FROM:</p>
+              <input type="date" placeholder="date of trip" />
+              <p>TO:</p>
+              <input type="date" placeholder="date of trip" />
+            </div>
+            <button className="booknowbook">Book Now</button>
+          </form>
+        </div>
+        <Footer/>
+  </>
+>>>>>>> 73612e9d5b7dbee060fcba734b64fa2b4373adc0
   );
 }

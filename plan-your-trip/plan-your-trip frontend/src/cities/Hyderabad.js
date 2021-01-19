@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import "./Hyderabad.css";
 import Description from "../Components/Description";
@@ -21,6 +22,21 @@ function Navbars() {
       <h2 className="hydname">Hyderabad</h2>
     </div>
   );
+=======
+import React from 'react';
+import './Hyderabad.css';
+import Description from '../Components/Description';
+import NavBar from '../Navbar/Navbar';
+import Footer from '../footer/Footer';
+import {religiousImages,touristImages,parkImages} from "../CityImages/HydImg";
+function IntroImage(){
+    return(
+        <div>
+            <img className="hyd" alt="bgimage" src="https://www.wallpapertip.com/wmimgs/44-446351_hyderabad-wallpaper.jpg"></img>
+            <h2 className="hydname">Hyderabad</h2>
+        </div>
+    );
+>>>>>>> 73612e9d5b7dbee060fcba734b64fa2b4373adc0
 }
 
 function Body(props) {
@@ -70,4 +86,21 @@ function Hyderabad(props) {
   );
 }
 
+<<<<<<< HEAD
 export default withRouter(Hyderabad);
+=======
+export default function Hyderabad(){
+    let firsttab="Hyd Religious";
+    let secondtab="Hyd Visitor places";
+    let thirdtab="Hyd Famous places";
+    return(
+        <div>
+            <NavBar/>
+            <IntroImage/>
+            <Body/>
+            <Description firsttab={firsttab} secondtab={secondtab} thirdtab={thirdtab} religiousImages={religiousImages} touristImages={touristImages} beachImages={parkImages}/>
+            <Footer/>
+        </div>            
+    );
+}
+>>>>>>> 73612e9d5b7dbee060fcba734b64fa2b4373adc0

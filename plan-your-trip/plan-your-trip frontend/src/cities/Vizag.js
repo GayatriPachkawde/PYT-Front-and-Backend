@@ -10,6 +10,7 @@ import {
 } from "../CityImages/VizagImg";
 import BookingForm from "../BookingForm/BookingForm";
 
+<<<<<<< HEAD
 function Navbars() {
   return (
     <div>
@@ -21,6 +22,15 @@ function Navbars() {
       <h2 className="vizagname">Visakhapatnam</h2>
     </div>
   );
+=======
+function IntroImage(){
+    return(
+        <div>
+            <img className="vizag" alt="vizag" src="https://2.bp.blogspot.com/-Buywxcs0Lkc/Uq1shnU8_EI/AAAAAAAAALE/G6VspF4QQ6g/s1600/vizag-kilasagiri-wallpapers2.jpg"></img>
+            <h2 className="vizagname">Visakhapatnam</h2>
+        </div>
+    );
+>>>>>>> 73612e9d5b7dbee060fcba734b64fa2b4373adc0
 }
 
 function Body(props) {
@@ -42,6 +52,7 @@ function Body(props) {
   );
 }
 
+<<<<<<< HEAD
 export default function Vizag(props) {
   const [showform, setshowForm] = useState(false);
   const updateState = () => {
@@ -69,3 +80,19 @@ export default function Vizag(props) {
     </div>
   );
 }
+=======
+export default function Vizag(){
+    let firsttab="Vizag Beaches";
+    let secondtab="Vizag visitor places";
+    let thirdtab="Vizag views";
+    return(
+        <div>
+            <NavBar/>
+            <IntroImage/>
+            <Body/>
+            <Description firsttab={firsttab} secondtab={secondtab} thirdtab={thirdtab} religiousImages={religiousImages} touristImages={touristImages} beachImages={beachImages}/>
+            <Footer/>
+        </div>            
+    );
+}
+>>>>>>> 73612e9d5b7dbee060fcba734b64fa2b4373adc0

@@ -10,6 +10,7 @@ import {
 } from "../CityImages/GoaImg";
 import BookingForm from "../BookingForm/BookingForm";
 
+<<<<<<< HEAD
 function Navbars() {
   return (
     <div>
@@ -21,6 +22,15 @@ function Navbars() {
       <h2 className="goaname">Goa</h2>
     </div>
   );
+=======
+function IntroImage(){
+    return(
+        <div>
+            <img className="goa" alt="bgimage" src="https://images.thrillophilia.com/image/upload/s--AdMFxeHB--/c_fill,dpr_1.0,f_auto,fl_strip_profile,g_center,h_450,q_auto,w_753/v1/images/photos/000/039/872/original/1607412230_shutterstock_1301320006.jpg.jpg"></img>
+            <h2 className="goaname">Goa</h2>
+        </div>
+    );
+>>>>>>> 73612e9d5b7dbee060fcba734b64fa2b4373adc0
 }
 
 function Body(props) {
@@ -44,6 +54,7 @@ function Body(props) {
   );
 }
 
+<<<<<<< HEAD
 function Goa(props) {
   const [showform, setshowForm] = useState(false);
   const updateState = () => {
@@ -73,3 +84,19 @@ function Goa(props) {
 }
 
 export default Goa;
+=======
+export default function Goa(){
+    let firsttab="Goa Beaches";
+    let secondtab="Goa Party places";
+    let thirdtab="Goa Views";
+    return(
+        <div>
+            <NavBar/>
+            <IntroImage/>
+            <Body/>
+            <Description firsttab={firsttab} secondtab={secondtab} thirdtab={thirdtab} religiousImages={religiousImages} touristImages={touristImages} beachImages={beachImages}/>
+            <Footer/>
+        </div>            
+    );
+}
+>>>>>>> 73612e9d5b7dbee060fcba734b64fa2b4373adc0
