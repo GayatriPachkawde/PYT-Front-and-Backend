@@ -21,7 +21,6 @@ mongoose.connection.once("open", () => {
 
 //Models
 require("./models/User");
-require("./models/Details");
 const User = mongoose.model("User");
 const Details = mongoose.model("Details");
 
@@ -60,12 +59,13 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
+  console.log(req.body);
   const { email, password } = req.body;
   if (!email || !password) {
     res.status(401).send("Error");
   }
   const existingUser = await User.findOne({
-    username,
+    email,
   });
 
   if (existingUser) {
@@ -81,35 +81,52 @@ app.post("/login", async (req, res) => {
   }
 });
 
-
-app.get("/logout", (req, res)=> {
-  if(!isNullOrUndefined(req.session)) {
-      // destroy the session
-      req.session.destroy(() => {
-          res.sendStatus(200);
-      });
-
-  } else {
+app.get("/logout", (req, res) => {
+  if (!isNullOrUndefined(req.session)) {
+    // destroy the session
+    req.session.destroy(() => {
       res.sendStatus(200);
+    });
+  } else {
+    res.sendStatus(200);
   }
 });
 
-app.post("/Booking",async(req,res)=>{
-  const {name,age,phoneNumber,licence,noOfTravellers,fromDate,toDate}=req.body;
-  if(!name || !age || !phoneNumber || !licence || !noOfTravellers || !fromDate ||!toDate){
+app.post("/Booking", async (req, res) => {
+  const {
+    name,
+    age,
+    phoneNumber,
+    licence,
+    noOfTravellers,
+    fromDate,
+    toDate,
+  } = req.body;
+  if (
+    !name ||
+    !age ||
+    !phoneNumber ||
+    !licence ||
+    !noOfTravellers ||
+    !fromDate ||
+    !toDate
+  ) {
     res.status(401).send("Error");
+  } else {
+    try {
+      const newUserDetails = new Details({
+        name,
+        age,
+        phoneNumber,
+        licence,
+        noOfTravellers,
+        fromDate,
+        toDate,
+      });
+      await newUserDetails.save();
+      res.status(201).send("Your Trip Booked Successfully");
+    } catch (e) {
+      res.status(401).send("Error");
+    }
   }
-  else{
-    const newUserDetails = new Details({
-      name,
-      age,
-      phoneNumber,
-      licence,
-      noOfTravellers,
-      fromDate,
-      toDate,
-    });
-    await newUserDetails.save();
-    res.status(201).send("Your Trip Booked Successfully");
-  }
-})
+});
